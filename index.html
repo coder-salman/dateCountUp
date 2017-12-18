@@ -3,10 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>DateCountUp</title>
+    <style>
+        #myText {font-size: 20px;font-weight: bold;color: red;}
+        code {background: #eee;}
+    </style>
 </head>
 <body>
-<script>
 
+<p>Celebrating <span id="myText"></span> days and nights of success stories and failures; high and lows; milestones and meltdowns. We are what we are. And you let us be.</p>
+<p>Our passion goes beyond advertising. We believe in doing work that’s worth remembering. We’re experts in understanding your business needs. And we’d love to understand you better over a coffee. Yes, we just asked you out. Call us, maybe?</p>
+<br>
+<p>Date variable is updated automatically. Default is set using the <code>countup</code> function to <code>countup(2014,12,10)</code> (December 10, 2014).
+<br>
+    It has been <span id="myText2"></span> days since December 10, 2014.
+</p>
+
+
+</body>
+
+
+<script>
 
     var montharray=new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec")
 
@@ -19,13 +35,14 @@
         var Thisdaydate=Thisday.getDate()
         var Thisdaystring=montharray[Thisdaymonth]+" "+Thisdaydate+", "+Thisdayy
         var paststring=montharray[m-1]+" "+d+", "+yr
-        var difference=(Math.round((Date.parse(Thisdaystring)-Date.parse(paststring))/(24*60*60*1000))*1)
-        document.write("Celebrating "+difference+" days and nights of success stories and failures; high and lows; milestones and meltdowns. We are what we are. And you let us be.")
+        var difference=(Math.round((Date.parse(Thisdaystring)-Date.parse(paststring))/(24*60*60*1000))*1);
+        document.getElementById("myText").innerHTML = difference;
+        document.getElementById("myText2").innerHTML = difference;
+
+
     }
     //enter the count up date using the format year/month/day
-    countup(2014,06,10)
+    countup(2014,12,10)
 </script>
 
-
-</body>
 </html>
